@@ -1,0 +1,37 @@
+name: Eventz Helpdesk CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m venv .venv
+        source .venv/bin/activate
+        pip install --upgrade pip
+        pip install flask pika
+
+    - name: Syntax check
+      run: |
+        find . -name "*.py" -exec python -m py_compile {} \;
+
+    - name: Confirm templates exist
+      run: |
+        test -f templates/login.html
+        test -f templates/submit.html
+        test -f templates/tickets.html
