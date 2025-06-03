@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Tickets</title>
+</head>
+<body>
+    <h1>Submitted Tickets for {{ user_email }}</h1>
+    <ul>
+        {% for t in tickets %}
+            <li><b>{{ t['ticket_id'] }}</b> | {{ t['status'] }} | {{ t['priority'] }} | {{ t['description'] }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Submit another ticket</a>
+</body>
+</html>

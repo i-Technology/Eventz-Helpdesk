@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Helpdesk Ticket</title>
+</head>
+<body>
+    <h1>Submit a Helpdesk Ticket</h1>
+    <form method="POST">
+        Email: <input type="email" name="email" required><br><br>
+        Category:
+        <select name="category">
+            <option>Software Issue</option>
+            <option>Hardware Issue</option>
+            <option>Other</option>
+        </select><br><br>
+        Priority:
+        <select name="priority">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+        </select><br><br>
+        Description:<br>
+        <textarea name="description" rows="5" cols="40" required></textarea><br><br>
+        <input type="submit" value="Submit Ticket">
+    </form>
+</body>
+</html>
